@@ -261,7 +261,7 @@
         </div>
       </section>
 
-      <!-- Gallery Carousel -->
+      <!-- Gallery Carousel with Lightbox -->
       <section class="mt-14 reveal">
         <h3 class="text-xl font-bold mb-4">Galería</h3>
         <div class="relative">
@@ -272,31 +272,65 @@
           >
             <img
               src="assets/1.jpeg"
-              class="w-64 h-44 object-cover rounded-xl shadow-md scroll-snap-align-start hover:scale-105 transition"
+              alt="Foto 1"
+              class="w-64 h-44 object-cover rounded-xl shadow-md scroll-snap-align-start hover:scale-105 transition cursor-pointer"
+              onclick="openLightbox(this.src)"
             />
             <img
               src="assets/2.jpeg"
-              class="w-64 h-44 object-cover rounded-xl shadow-md scroll-snap-align-start hover:scale-105 transition"
+              alt="Foto 2"
+              class="w-64 h-44 object-cover rounded-xl shadow-md scroll-snap-align-start hover:scale-105 transition cursor-pointer"
+              onclick="openLightbox(this.src)"
             />
             <img
               src="assets/3.jpeg"
-              class="w-64 h-44 object-cover rounded-xl shadow-md scroll-snap-align-start hover:scale-105 transition"
+              alt="Foto 3"
+              class="w-64 h-44 object-cover rounded-xl shadow-md scroll-snap-align-start hover:scale-105 transition cursor-pointer"
+              onclick="openLightbox(this.src)"
             />
             <img
               src="assets/4.jpeg"
-              class="w-64 h-44 object-cover rounded-xl shadow-md scroll-snap-align-start hover:scale-105 transition"
+              alt="Foto 4"
+              class="w-64 h-44 object-cover rounded-xl shadow-md scroll-snap-align-start hover:scale-105 transition cursor-pointer"
+              onclick="openLightbox(this.src)"
             />
             <img
               src="assets/5.jpeg"
-              class="w-64 h-44 object-cover rounded-xl shadow-md scroll-snap-align-start hover:scale-105 transition"
+              alt="Foto 5"
+              class="w-64 h-44 object-cover rounded-xl shadow-md scroll-snap-align-start hover:scale-105 transition cursor-pointer"
+              onclick="openLightbox(this.src)"
             />
             <img
               src="assets/6.jpeg"
-              class="w-64 h-44 object-cover rounded-xl shadow-md scroll-snap-align-start hover:scale-105 transition"
+              alt="Foto 6"
+              class="w-64 h-44 object-cover rounded-xl shadow-md scroll-snap-align-start hover:scale-105 transition cursor-pointer"
+              onclick="openLightbox(this.src)"
             />
           </div>
         </div>
       </section>
+
+      <!-- Lightbox -->
+      <div
+        id="lightbox"
+        class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+      >
+        <img
+          id="lightbox-img"
+          src=""
+          class="max-w-full max-h-full rounded-lg shadow-lg"
+        />
+      </div>
+
+      <script>
+        function openLightbox(src) {
+          document.getElementById("lightbox-img").src = src;
+          document.getElementById("lightbox").classList.remove("hidden");
+        }
+        document.getElementById("lightbox").addEventListener("click", () => {
+          document.getElementById("lightbox").classList.add("hidden");
+        });
+      </script>
 
       <style>
         .scroll-snap-x {
@@ -317,9 +351,10 @@
             <div>
               <h3 class="text-2xl font-bold">¿Quieres agendar una visita?</h3>
               <p class="mt-3 text-slate-700">
-                Visítanos en <strong>Barrio Batha, San Francisco Chimalpa</strong> o llámanos para
-                conocer nuestras instalaciones. ¡Será un gusto mostrarte cómo
-                cuidamos y educamos a los pequeños!
+                Visítanos en
+                <strong>Barrio Batha, San Francisco Chimalpa</strong> o llámanos
+                para conocer nuestras instalaciones. ¡Será un gusto mostrarte
+                cómo cuidamos y educamos a los pequeños!
               </p>
 
               <div class="mt-5 flex flex-wrap gap-3">
@@ -374,7 +409,7 @@
           </div>
         </div>
         <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
-                    <div
+          <div
             class="p-3 bg-white rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1 reveal"
           >
             <div class="text-xs text-slate-500">Nivel</div>
@@ -392,7 +427,6 @@
             <div class="text-xs text-slate-500">Colegiatura</div>
             <div class="font-bold text-lg">$750</div>
           </div>
-
         </div>
       </section>
 
@@ -402,7 +436,9 @@
           <div class="md:flex md:justify-between md:items-center">
             <div>
               <div class="font-semibold">Liceo Alpha y Omega</div>
-              <div class="text-sm">Ubicados en Barrio Batha, San Francisco Chimalpa</div>
+              <div class="text-sm">
+                Ubicados en Barrio Batha, San Francisco Chimalpa
+              </div>
               <div class="mt-3">
                 📞
                 <a href="tel:5543759238" class="text-primary font-semibold"
@@ -412,9 +448,7 @@
             </div>
 
             <div class="mt-4 md:mt-0">
-              <div class="text-sm text-slate-600">
-                Síguenos en redes
-              </div>
+              <div class="text-sm text-slate-600">Síguenos en redes</div>
               <div class="flex gap-3 mt-2">
                 <a
                   href="#"
